@@ -1,0 +1,22 @@
+{
+  "name": "metal-flux-app",
+  "version": "0.0.0",
+  "description": "An app built with Metal.js and Flux",
+  "main": "src/App.js",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "metal",
+    "metal-flux"
+  ],
+  "ignore": [
+    "*",
+    "!src/**/*",
+    "!test/**/*"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "metal-flux": "mairatma/metal-flux#master"
+  }
+}
