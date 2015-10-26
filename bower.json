@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "metal-flux": "mairatma/metal-flux#master"
+    "metal-flux": "mairatma/metal-flux#master",
+    "steel-bootstrap": "metal/steel-bootstrap#~1.0.0"
   }
 }

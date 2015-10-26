@@ -5,14 +5,43 @@
 	<title>Demo: App</title>
 
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="build/app.css">
 
 	<script src="bower_components/soyutils/soyutils.js"></script>
 	<script src="build/globals/app.js"></script>
 </head>
 <body>
-	<h1>App</h1>
 	<script type="text/javascript">
-		new metal.App().render();
+		// This could be data given by the server.
+		metal.App.run({
+			currentUserId: 1,
+			navBarItems: [
+				{
+					name: 'Profile'
+				},
+				{
+					name: 'Messages'
+				},
+				{
+					name: 'Settings'
+				}
+			],
+			navBarSelectedIndex: 0,
+			users: {
+				1: {
+					id: 1,
+					name: 'Laís Andrade',
+					photo: 'images/lais.png',
+					status: 'Chaos reigns'
+				},
+				2: {
+					id: 2,
+					name: 'Eduardo Lundgren',
+					photo: 'images/eduardo.jpg',
+					status: 'Did anyone say wine?'
+				}
+			}
+		});
 	</script>
 </body>
 </html>

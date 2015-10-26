@@ -1,0 +1,32 @@
+{namespace Templates.AppPage}
+
+/**
+ * This renders the main element.
+ * @param id
+ * @param navBarItems
+ * @param navBarSelectedIndex
+ * @param user
+ */
+{template .content}
+	<div id="{$id}" class="app component">
+		{call Templates.AppMenu.content}
+			{param id: $id + '-menu' /}
+			{param navBarItems: $navBarItems /}
+			{param navBarSelectedIndex: $navBarSelectedIndex /}
+		{/call}
+		{if $navBarSelectedIndex == 0}
+			{call Templates.AppProfile.content}
+				{param id: $id + '-profile' /}
+				{param user: $user /}
+			{/call}
+		{elseif $navBarSelectedIndex == 1}
+			{call Templates.AppMessages.content}
+				{param id: $id + '-messages' /}
+			{/call}
+		{else}
+			{call Templates.AppSettings.content}
+				{param id: $id + '-settings' /}
+			{/call}
+		{/if}
+	</div>
+{/template}

@@ -1,17 +1,18 @@
 'use strict';
 
-import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-import SoyComponent from 'bower:metal/src/soy/SoyComponent';
-import './App.soy';
+import AppActions from './AppActions';
+import AppDispatcher from './AppDispatcher';
+import AppPage from './views/AppPage';
 
-class App extends SoyComponent {
-	constructor(opt_config) {
-		super(opt_config);
+class App {
+	static run(initialData) {
+		AppDispatcher.dispatch({
+			type: AppActions.FETCH_ALL,
+			data: initialData
+		});
+
+		new AppPage().render();
 	}
 }
-
-App.ELEMENT_CLASSES = 'app';
-
-ComponentRegistry.register('App', App);
 
 export default App;
