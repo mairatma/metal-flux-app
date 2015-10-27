@@ -4,6 +4,7 @@
  * This renders the main element.
  * @param allUsers
  * @param id
+ * @param lastTimestamp
  * @param navBarItems
  * @param navBarSelectedIndex
  * @param selectedThreadIndex
@@ -23,6 +24,7 @@
 				{if $navBarSelectedIndex == 0}
 					{call Templates.AppProfile.content}
 						{param id: $id + '-profile' /}
+						{param lastTimestamp: $lastTimestamp /}
 						{param user: $user /}
 					{/call}
 				{elseif $navBarSelectedIndex == 1}

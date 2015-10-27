@@ -35,12 +35,12 @@ if (goog.DEBUG) {
  */
 Templates.AppConversation.messages = function(opt_data, opt_ignored, opt_ijData) {
   var output = '<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '-messages" class="col-xs-12"><h3>' + soy.$$escapeHtml(opt_data.allUsers[opt_data.thread.userId].name) + '</h3>';
-  var messageList79 = opt_data.thread.messages;
-  var messageListLen79 = messageList79.length;
-  for (var messageIndex79 = 0; messageIndex79 < messageListLen79; messageIndex79++) {
-    var messageData79 = messageList79[messageIndex79];
-    var user__soy80 = opt_data.allUsers[messageData79.from];
-    output += '<div class="app-message"><span class="avatar-photo avatar-medium"><img src="' + soy.$$escapeHtmlAttribute(soy.$$filterNormalizeUri(user__soy80.photo)) + '"></span><strong> ' + soy.$$escapeHtml(user__soy80.name) + ': </strong><span>' + soy.$$escapeHtml(messageData79.content) + '</span></div>';
+  var messageList86 = opt_data.thread.messages;
+  var messageListLen86 = messageList86.length;
+  for (var messageIndex86 = 0; messageIndex86 < messageListLen86; messageIndex86++) {
+    var messageData86 = messageList86[messageIndex86];
+    var user__soy87 = opt_data.allUsers[messageData86.from];
+    output += '<div class="app-message"><span class="avatar-photo avatar-medium"><img src="' + soy.$$escapeHtmlAttribute(soy.$$filterNormalizeUri(user__soy87.photo)) + '"></span><strong> ' + soy.$$escapeHtml(user__soy87.name) + ': </strong><span>' + soy.$$escapeHtml(messageData86.content) + '</span></div>';
   }
   output += '</div>';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);

@@ -34,10 +34,13 @@ class ThreadsStore extends FluxStore {
 				}
 				break;
 			case AppActions.SEND_MESSAGE:
-				this.get(payload.threadIndex).messages.push({
+				var thread = this.get(payload.threadIndex);
+				thread.messages.push({
 					from: UsersStore.getCurrentUser().id,
 					content: payload.content
 				})
+				var time = new Date();
+				thread.timestamp = time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds();
 				this.emit(FluxStore.EVENT_CHANGE);
 				break;
 		}

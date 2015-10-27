@@ -2,11 +2,17 @@
 
 /**
  * @param id
+ * @param lastTimestamp
  * @param user
  */
 {template .content}
 	<div id="{$id}" class="app-profile">
 		<span class="avatar-photo"><img src="{$user.photo}"></span>
-		<h3 class="app-profile-name">{$user.name} <small>"{$user.status}"</small></h3>
+		<h3 class="app-profile-name">
+			{$user.name} <small>"{$user.status}"</small>
+			{if $lastTimestamp}
+				<span class="label label-info">Message sent at {$lastTimestamp}</span>
+			{/if}
+		</h3>
 	</div>
 {/template}

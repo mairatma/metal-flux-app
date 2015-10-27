@@ -20,11 +20,11 @@ if (typeof Templates.AppThreadsSidebar == 'undefined') { Templates.AppThreadsSid
  */
 Templates.AppThreadsSidebar.content = function(opt_data, opt_ignored, opt_ijData) {
   var output = '<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-threads-sidebar list-group">';
-  var threadList116 = opt_data.threads;
-  var threadListLen116 = threadList116.length;
-  for (var threadIndex116 = 0; threadIndex116 < threadListLen116; threadIndex116++) {
-    var threadData116 = threadList116[threadIndex116];
-    output += '<a href="#" class="list-group-item' + soy.$$escapeHtmlAttribute(opt_data.selectedThreadIndex == threadIndex116 ? ' active' : '') + '" data-onclick="handleItemClick_" data-index="' + soy.$$escapeHtmlAttribute(threadIndex116) + '">' + soy.$$escapeHtml(opt_data.allUsers[threadData116.userId].name) + '</a>';
+  var threadList123 = opt_data.threads;
+  var threadListLen123 = threadList123.length;
+  for (var threadIndex123 = 0; threadIndex123 < threadListLen123; threadIndex123++) {
+    var threadData123 = threadList123[threadIndex123];
+    output += '<a href="#" class="list-group-item' + soy.$$escapeHtmlAttribute(opt_data.selectedThreadIndex == threadIndex123 ? ' active' : '') + '" data-onclick="handleItemClick_" data-index="' + soy.$$escapeHtmlAttribute(threadIndex123) + '">' + soy.$$escapeHtml(opt_data.allUsers[threadData123.userId].name) + '</a>';
   }
   output += '</div>';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);

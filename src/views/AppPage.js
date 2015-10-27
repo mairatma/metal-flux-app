@@ -1,6 +1,7 @@
 'use strict';
 
 import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
+import LastSentTimestampStore from '../stores/LastSentTimestampStore';
 import NavBarStore from '../stores/NavBarStore';
 import SoyComponent from 'bower:metal/src/soy/SoyComponent';
 import ThreadsStore from '../stores/ThreadsStore';
@@ -27,12 +28,19 @@ class AppPage extends SoyComponent {
 				selectedThreadIndex: ThreadsStore.getSelectedThreadIndex()
 			});
 		});
+		LastSentTimestampStore.on('change', () => {
+			this.lastTimestamp = LastSentTimestampStore.get();
+		});
 	}
 }
 
 AppPage.ATTRS = {
 	allUsers: {
 		valueFn: UsersStore.getAll
+	},
+
+	lastTimestamp: {
+		valueFn: LastSentTimestampStore.get
 	},
 
 	navBarItems: {
