@@ -12,7 +12,11 @@ class AppPage extends SoyComponent {
 		NavBarStore.on('change', () => {
 			this.setAttrs({
 				navBarItems: NavBarStore.getAll(),
-				navBarSelectedIndex: NavBarStore.getSelectedIndex(),
+				navBarSelectedIndex: NavBarStore.getSelectedIndex()
+			});
+		});
+		UsersStore.on('change', () => {
+			this.setAttrs({
 				user: UsersStore.getCurrentUser()
 			});
 		});

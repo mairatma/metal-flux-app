@@ -27,6 +27,11 @@ class UsersStore extends FluxStore {
 				currentUserId = payload.data.currentUserId;
 				this.emit(FluxStore.EVENT_CHANGE);
 				break;
+			case AppActions.EDIT_USER:
+				users[payload.id].name = payload.name;
+				users[payload.id].status = payload.status;
+				this.emit(FluxStore.EVENT_CHANGE);
+				break;
 		}
 	}
 }
