@@ -3,8 +3,8 @@
 import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
 import NavBarStore from '../stores/NavBarStore';
 import SoyComponent from 'bower:metal/src/soy/SoyComponent';
+import ThreadsStore from '../stores/ThreadsStore';
 import UsersStore from '../stores/UsersStore';
-import './AppMenu';
 import './AppPage.soy';
 
 class AppPage extends SoyComponent {
@@ -17,19 +17,38 @@ class AppPage extends SoyComponent {
 		});
 		UsersStore.on('change', () => {
 			this.setAttrs({
+				allUsers: UsersStore.getAll(),
 				user: UsersStore.getCurrentUser()
+			});
+		});
+		ThreadsStore.on('change', () => {
+			this.setAttrs({
+				threads: ThreadsStore.getAll(),
+				selectedThreadIndex: ThreadsStore.getSelectedThreadIndex()
 			});
 		});
 	}
 }
 
 AppPage.ATTRS = {
+	allUsers: {
+		valueFn: UsersStore.getAll
+	},
+
 	navBarItems: {
 		valueFn: NavBarStore.getAll
 	},
 
 	navBarSelectedIndex: {
 		valueFn: NavBarStore.getSelectedIndex
+	},
+
+	selectedThreadIndex: {
+		valueFn: ThreadsStore.getSelectedThreadIndex
+	},
+
+	threads: {
+		valueFn: ThreadsStore.getAll
 	},
 
 	user: {

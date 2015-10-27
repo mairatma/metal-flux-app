@@ -19,7 +19,7 @@ if (typeof Templates.AppProfile == 'undefined') { Templates.AppProfile = {}; }
  * @suppress {checkTypes}
  */
 Templates.AppProfile.content = function(opt_data, opt_ignored, opt_ijData) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-profile"><span class="avatar-photo avatar-medium"><img src="' + soy.$$escapeHtmlAttribute(soy.$$filterNormalizeUri(opt_data.user.photo)) + '"></span><h3 class="app-profile-name">' + soy.$$escapeHtml(opt_data.user.name) + ' <small>"' + soy.$$escapeHtml(opt_data.user.status) + '"</small></h3></div>');
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-profile"><span class="avatar-photo"><img src="' + soy.$$escapeHtmlAttribute(soy.$$filterNormalizeUri(opt_data.user.photo)) + '"></span><h3 class="app-profile-name">' + soy.$$escapeHtml(opt_data.user.name) + ' <small>"' + soy.$$escapeHtml(opt_data.user.status) + '"</small></h3></div>');
 };
 if (goog.DEBUG) {
   Templates.AppProfile.content.soyTemplateName = 'Templates.AppProfile.content';

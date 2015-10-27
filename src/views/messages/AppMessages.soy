@@ -1,0 +1,28 @@
+{namespace Templates.AppMessages}
+
+/**
+ * @param allUsers
+ * @param id
+ * @param threads
+ * @param selectedThreadIndex
+ */
+{template .content}
+	<div id="{$id}" class="app-messages">
+		<div class="col-xs-4">
+			{call Templates.AppThreadsSidebar.content}
+				{param allUsers: $allUsers /}
+				{param id: $id + '-threads-sidebar' /}
+				{param selectedThreadIndex: $selectedThreadIndex /}
+				{param threads: $threads /}
+			{/call}
+		</div>
+		<div class="col-xs-8">
+			{call Templates.AppConversation.content}
+				{param allUsers: $allUsers /}
+				{param id: $id + '-conversation' /}
+				{param thread: $threads[$selectedThreadIndex] /}
+				{param selectedThreadIndex: $selectedThreadIndex /}
+			{/call}
+		</div>
+	</div>
+{/template}

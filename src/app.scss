@@ -3,7 +3,19 @@
 	width: 120px;
 }
 
+.app .avatar-photo.avatar-medium img {
+	width: 48px;
+}
+
 .app-profile-name {
 	display: inline;
 	margin-left: 20px;
+}
+
+.app-threads-sidebar li {
+	cursor: pointer;
+}
+
+.app-message {
+	margin: 20px 0;
 }

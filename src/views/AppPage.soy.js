@@ -19,12 +19,12 @@ if (typeof Templates.AppPage == 'undefined') { Templates.AppPage = {}; }
  * @suppress {checkTypes}
  */
 Templates.AppPage.content = function(opt_data, opt_ignored, opt_ijData) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app component">' + Templates.AppMenu.content({id: opt_data.id + '-menu', navBarItems: opt_data.navBarItems, navBarSelectedIndex: opt_data.navBarSelectedIndex, user: opt_data.user}, null, opt_ijData) + '<div class="container"><div class="row">' + ((opt_data.navBarSelectedIndex == 0) ? Templates.AppProfile.content({id: opt_data.id + '-profile', user: opt_data.user}, null, opt_ijData) : (opt_data.navBarSelectedIndex == 1) ? Templates.AppMessages.content({id: opt_data.id + '-messages'}, null, opt_ijData) : Templates.AppSettings.content({id: opt_data.id + '-settings', user: opt_data.user}, null, opt_ijData)) + '</div></div></div>');
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app component">' + Templates.AppMenu.content({id: opt_data.id + '-menu', navBarItems: opt_data.navBarItems, navBarSelectedIndex: opt_data.navBarSelectedIndex, user: opt_data.user}, null, opt_ijData) + '<div class="container"><div class="row">' + ((opt_data.navBarSelectedIndex == 0) ? Templates.AppProfile.content({id: opt_data.id + '-profile', user: opt_data.user}, null, opt_ijData) : (opt_data.navBarSelectedIndex == 1) ? Templates.AppMessages.content({allUsers: opt_data.allUsers, id: opt_data.id + '-messages', selectedThreadIndex: opt_data.selectedThreadIndex, threads: opt_data.threads}, null, opt_ijData) : Templates.AppSettings.content({id: opt_data.id + '-settings', user: opt_data.user}, null, opt_ijData)) + '</div></div></div>');
 };
 if (goog.DEBUG) {
   Templates.AppPage.content.soyTemplateName = 'Templates.AppPage.content';
 }
 
-Templates.AppPage.content.params = ["id","navBarItems","navBarSelectedIndex","user"];
+Templates.AppPage.content.params = ["allUsers","id","navBarItems","navBarSelectedIndex","selectedThreadIndex","threads","user"];
 export default Templates.AppPage;
 /* jshint ignore:end */

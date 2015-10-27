@@ -2,9 +2,12 @@
 
 /**
  * This renders the main element.
+ * @param allUsers
  * @param id
  * @param navBarItems
  * @param navBarSelectedIndex
+ * @param selectedThreadIndex
+ * @param threads
  * @param user
  */
 {template .content}
@@ -24,7 +27,10 @@
 					{/call}
 				{elseif $navBarSelectedIndex == 1}
 					{call Templates.AppMessages.content}
+						{param allUsers: $allUsers /}
 						{param id: $id + '-messages' /}
+						{param selectedThreadIndex: $selectedThreadIndex /}
+						{param threads: $threads /}
 					{/call}
 				{else}
 					{call Templates.AppSettings.content}

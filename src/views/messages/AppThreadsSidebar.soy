@@ -1,0 +1,21 @@
+{namespace Templates.AppThreadsSidebar}
+
+/**
+ * @param allUsers
+ * @param id
+ * @param selectedThreadIndex
+ * @param threads
+ */
+{template .content}
+	<div id="{$id}" class="app-threads-sidebar list-group">
+		{foreach $thread in $threads}
+	  	<a
+	  		href="#"
+	  		class="list-group-item{$selectedThreadIndex == index($thread) ? ' active' : ''}"
+	  		data-onclick="handleItemClick_"
+	  		data-index="{index($thread)}">
+	  		{$allUsers[$thread.userId].name}
+	  	</a>
+	  {/foreach}
+	</div>
+{/template}

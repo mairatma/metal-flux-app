@@ -1,0 +1,43 @@
+{namespace Templates.AppConversation}
+
+/**
+ * @param id
+ */
+{template .content}
+	<div id="{$id}" class="app-conversation">
+		{call .messages data="all" /}
+		{call .input data="all" /}
+	</div>
+{/template}
+
+/**
+ * @param allUsers
+ * @param id
+ * @param thread
+ */
+{template .messages}
+	<div id="{$id}-messages" class="col-xs-12">
+		<h3>{$allUsers[$thread.userId].name}</h3>
+		{foreach $message in $thread.messages}
+			{let $user: $allUsers[$message.from] /}
+			<div class="app-message">
+				<span class="avatar-photo avatar-medium"><img src="{$user.photo}"></span>
+				<strong> {$user.name}: </strong><span>{$message.content}</span>
+			</div>
+		{/foreach}
+	</div>
+{/template}
+
+/**
+ * @param id
+ */
+{template .input}
+	<div id="{$id}-input">
+		<div class="col-xs-9">
+			<input type="text" class="form-control" data-onkeyup="handleInputKeyUp_">
+		</div>
+		<div class="col-xs-3">
+			<button type="button" class="btn btn-primary" data-onclick="handleSendClick_">Send</button>
+		</div>
+	</div>
+{/template}
