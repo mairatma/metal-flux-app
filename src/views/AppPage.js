@@ -1,14 +1,12 @@
 'use strict';
 
-import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
 import LastSentTimestampStore from '../stores/LastSentTimestampStore';
 import NavBarStore from '../stores/NavBarStore';
-import SoyComponent from 'bower:metal/src/soy/SoyComponent';
 import ThreadsStore from '../stores/ThreadsStore';
 import UsersStore from '../stores/UsersStore';
-import './AppPage.soy';
+import AppPageBase from './AppPage.soy';
 
-class AppPage extends SoyComponent {
+class AppPage extends AppPageBase {
 	attached() {
 		NavBarStore.on('change', () => {
 			this.setAttrs({
@@ -64,8 +62,6 @@ AppPage.ATTRS = {
 	}
 };
 
-AppPage.ELEMENT_CLASSES = 'app';
-
-ComponentRegistry.register('AppPage', AppPage);
+AppPageBase.setImpl(AppPage);
 
 export default AppPage;

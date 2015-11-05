@@ -1,11 +1,9 @@
 'use strict';
 
 import AppActions from '../../AppActions';
-import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-import SoyComponent from 'bower:metal/src/soy/SoyComponent';
-import './AppConversation.soy';
+import AppConversationBase from './AppConversation.soy';
 
-class AppConversation extends SoyComponent {
+class AppConversation extends AppConversationBase {
 	handleInputKeyUp_(event) {
 		if (event.keyCode === 13) {
 			this.sendMessage_();
@@ -30,8 +28,6 @@ AppConversation.ATTRS = {
 	}
 };
 
-AppConversation.ELEMENT_CLASSES = 'app-conversation';
-
-ComponentRegistry.register('AppConversation', AppConversation);
+AppConversationBase.setImpl(AppConversation);
 
 export default AppConversation;

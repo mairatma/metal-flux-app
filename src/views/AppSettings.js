@@ -1,11 +1,9 @@
 'use strict';
 
 import AppActions from '../AppActions';
-import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-import SoyComponent from 'bower:metal/src/soy/SoyComponent';
-import './AppSettings.soy';
+import AppSettingsBase from './AppSettings.soy';
 
-class AppSettings extends SoyComponent {
+class AppSettings extends AppSettingsBase {
 	handleClickSave_() {
 		AppActions.editUser(
 			this.user.id,
@@ -14,9 +12,6 @@ class AppSettings extends SoyComponent {
 		);
 	}
 }
-
-AppSettings.ELEMENT_CLASSES = 'app-profile';
-
-ComponentRegistry.register('AppSettings', AppSettings);
+AppSettingsBase.setImpl(AppSettings);
 
 export default AppSettings;

@@ -1,6 +1,10 @@
 /* jshint ignore:start */
+import Component from 'bower:metal/src/component/Component';
 import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-var Templates = ComponentRegistry.Templates;
+import SoyAop from 'bower:metal/src/soy/SoyAop';
+import SoyRenderer from 'bower:metal/src/soy/SoyRenderer';
+import SoyTemplates from 'bower:metal/src/soy/SoyTemplates';
+var Templates = SoyTemplates.get();
 // This file was automatically generated from AppMessages.soy.
 // Please don't edit this file by hand.
 
@@ -26,5 +30,14 @@ if (goog.DEBUG) {
 }
 
 Templates.AppMessages.content.params = ["allUsers","id","threads","selectedThreadIndex"];
-export default Templates.AppMessages;
+
+class AppMessages extends Component {
+  static setImpl(ctor) {
+    ComponentRegistry.register(ctor, 'AppMessages');
+  }
+}
+AppMessages.RENDERER = SoyRenderer;
+AppMessages.setImpl(AppMessages);
+SoyAop.registerTemplates('AppMessages');
+export default AppMessages;
 /* jshint ignore:end */

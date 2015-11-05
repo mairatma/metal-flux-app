@@ -1,11 +1,9 @@
 'use strict';
 
 import AppActions from '../AppActions';
-import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-import SoyComponent from 'bower:metal/src/soy/SoyComponent';
-import './AppMenu.soy';
+import AppMenuBase from './AppMenu.soy';
 
-class AppMenu extends SoyComponent {
+class AppMenu extends AppMenuBase {
 	handleHomeClick_() {
 		AppActions.selectNavBarItem(0);
 	}
@@ -14,9 +12,6 @@ class AppMenu extends SoyComponent {
 		AppActions.selectNavBarItem(parseInt(event.delegateTarget.getAttribute('data-index'), 10));
 	}
 }
-
-AppMenu.ELEMENT_CLASSES = 'app-menu navbar navbar-default';
-
-ComponentRegistry.register('AppMenu', AppMenu);
+AppMenuBase.setImpl(AppMenu);
 
 export default AppMenu;

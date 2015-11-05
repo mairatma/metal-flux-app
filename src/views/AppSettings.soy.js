@@ -1,6 +1,10 @@
 /* jshint ignore:start */
+import Component from 'bower:metal/src/component/Component';
 import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-var Templates = ComponentRegistry.Templates;
+import SoyAop from 'bower:metal/src/soy/SoyAop';
+import SoyRenderer from 'bower:metal/src/soy/SoyRenderer';
+import SoyTemplates from 'bower:metal/src/soy/SoyTemplates';
+var Templates = SoyTemplates.get();
 // This file was automatically generated from AppSettings.soy.
 // Please don't edit this file by hand.
 
@@ -26,5 +30,14 @@ if (goog.DEBUG) {
 }
 
 Templates.AppSettings.content.params = ["id","user"];
-export default Templates.AppSettings;
+
+class AppSettings extends Component {
+  static setImpl(ctor) {
+    ComponentRegistry.register(ctor, 'AppSettings');
+  }
+}
+AppSettings.RENDERER = SoyRenderer;
+AppSettings.setImpl(AppSettings);
+SoyAop.registerTemplates('AppSettings');
+export default AppSettings;
 /* jshint ignore:end */
