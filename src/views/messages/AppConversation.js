@@ -28,6 +28,4 @@ AppConversation.ATTRS = {
 	}
 };
 
-AppConversationBase.setImpl(AppConversation);
-
 export default AppConversation;

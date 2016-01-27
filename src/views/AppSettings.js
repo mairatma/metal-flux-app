@@ -12,6 +12,5 @@ class AppSettings extends AppSettingsBase {
 		);
 	}
 }
-AppSettingsBase.setImpl(AppSettings);
 
 export default AppSettings;

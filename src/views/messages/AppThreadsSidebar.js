@@ -9,6 +9,4 @@ class AppThreadsSidebar extends AppThreadsSidebarBase {
 	}
 }
 
-AppThreadsSidebarBase.setImpl(AppThreadsSidebar);
-
 export default AppThreadsSidebar;

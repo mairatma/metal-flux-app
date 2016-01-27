@@ -1,9 +1,8 @@
 /* jshint ignore:start */
-import Component from 'bower:metal/src/component/Component';
-import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-import SoyAop from 'bower:metal/src/soy/SoyAop';
-import SoyRenderer from 'bower:metal/src/soy/SoyRenderer';
-import SoyTemplates from 'bower:metal/src/soy/SoyTemplates';
+import Component from 'metal/src/component/Component';
+import SoyAop from 'metal/src/soy/SoyAop';
+import SoyRenderer from 'metal/src/soy/SoyRenderer';
+import SoyTemplates from 'metal/src/soy/SoyTemplates';
 var Templates = SoyTemplates.get();
 // This file was automatically generated from AppPage.soy.
 // Please don't edit this file by hand.
@@ -31,13 +30,8 @@ if (goog.DEBUG) {
 
 Templates.AppPage.content.params = ["allUsers","id","lastTimestamp","navBarItems","navBarSelectedIndex","selectedThreadIndex","threads","user"];
 
-class AppPage extends Component {
-  static setImpl(ctor) {
-    ComponentRegistry.register(ctor, 'AppPage');
-  }
-}
+class AppPage extends Component {}
 AppPage.RENDERER = SoyRenderer;
-AppPage.setImpl(AppPage);
 SoyAop.registerTemplates('AppPage');
 export default AppPage;
 /* jshint ignore:end */

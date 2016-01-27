@@ -62,6 +62,4 @@ AppPage.ATTRS = {
 	}
 };
 
-AppPageBase.setImpl(AppPage);
-
 export default AppPage;

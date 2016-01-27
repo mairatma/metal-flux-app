@@ -12,6 +12,5 @@ class AppMenu extends AppMenuBase {
 		AppActions.selectNavBarItem(parseInt(event.delegateTarget.getAttribute('data-index'), 10));
 	}
 }
-AppMenuBase.setImpl(AppMenu);
 
 export default AppMenu;

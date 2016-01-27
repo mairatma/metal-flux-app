@@ -2,7 +2,7 @@
 
 import AppActions from '../AppActions';
 import AppDispatcher from '../AppDispatcher';
-import FluxStore from 'bower:metal-flux/src/FluxStore';
+import FluxStore from 'metal-flux/src/FluxStore';
 
 var users = {};
 var currentUserId;
