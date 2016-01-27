@@ -11,9 +11,9 @@
  * @param threads
  * @param user
  */
-{template .content}
+{template .render}
 	<div id="{$id}" class="app component">
-		{call Templates.AppMenu.content}
+		{call Templates.AppMenu.render}
 			{param id: $id + '-menu' /}
 			{param navBarItems: $navBarItems /}
 			{param navBarSelectedIndex: $navBarSelectedIndex /}
@@ -22,20 +22,20 @@
 		<div class="container">
 			<div class="row">
 				{if $navBarSelectedIndex == 0}
-					{call Templates.AppProfile.content}
+					{call Templates.AppProfile.render}
 						{param id: $id + '-profile' /}
 						{param lastTimestamp: $lastTimestamp /}
 						{param user: $user /}
 					{/call}
 				{elseif $navBarSelectedIndex == 1}
-					{call Templates.AppMessages.content}
+					{call Templates.AppMessages.render}
 						{param allUsers: $allUsers /}
 						{param id: $id + '-messages' /}
 						{param selectedThreadIndex: $selectedThreadIndex /}
 						{param threads: $threads /}
 					{/call}
 				{else}
-					{call Templates.AppSettings.content}
+					{call Templates.AppSettings.render}
 						{param id: $id + '-settings' /}
 						{param user: $user /}
 					{/call}

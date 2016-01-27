@@ -6,10 +6,10 @@
  * @param threads
  * @param selectedThreadIndex
  */
-{template .content}
+{template .render}
 	<div id="{$id}" class="app-messages">
 		<div class="col-xs-4">
-			{call Templates.AppThreadsSidebar.content}
+			{call Templates.AppThreadsSidebar.render}
 				{param allUsers: $allUsers /}
 				{param id: $id + '-threads-sidebar' /}
 				{param selectedThreadIndex: $selectedThreadIndex /}
@@ -17,7 +17,7 @@
 			{/call}
 		</div>
 		<div class="col-xs-8">
-			{call Templates.AppConversation.content}
+			{call Templates.AppConversation.render}
 				{param allUsers: $allUsers /}
 				{param id: $id + '-conversation' /}
 				{param thread: $threads[$selectedThreadIndex] /}

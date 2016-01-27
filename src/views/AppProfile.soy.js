@@ -21,14 +21,14 @@ if (typeof Templates.AppProfile == 'undefined') { Templates.AppProfile = {}; }
  * @return {!soydata.SanitizedHtml}
  * @suppress {checkTypes}
  */
-Templates.AppProfile.content = function(opt_data, opt_ignored, opt_ijData) {
+Templates.AppProfile.render = function(opt_data, opt_ignored, opt_ijData) {
   return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-profile"><span class="avatar-photo"><img src="' + soy.$$escapeHtmlAttribute(soy.$$filterNormalizeUri(opt_data.user.photo)) + '"></span><h3 class="app-profile-name">' + soy.$$escapeHtml(opt_data.user.name) + ' <small>"' + soy.$$escapeHtml(opt_data.user.status) + '"</small>' + ((opt_data.lastTimestamp) ? '<span class="label label-info">Message sent at ' + soy.$$escapeHtml(opt_data.lastTimestamp) + '</span>' : '') + '</h3></div>');
 };
 if (goog.DEBUG) {
-  Templates.AppProfile.content.soyTemplateName = 'Templates.AppProfile.content';
+  Templates.AppProfile.render.soyTemplateName = 'Templates.AppProfile.render';
 }
 
-Templates.AppProfile.content.params = ["id","lastTimestamp","user"];
+Templates.AppProfile.render.params = ["id","lastTimestamp","user"];
 
 class AppProfile extends Component {}
 AppProfile.RENDERER = SoyRenderer;

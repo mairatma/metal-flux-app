@@ -21,7 +21,7 @@ if (typeof Templates.AppThreadsSidebar == 'undefined') { Templates.AppThreadsSid
  * @return {!soydata.SanitizedHtml}
  * @suppress {checkTypes}
  */
-Templates.AppThreadsSidebar.content = function(opt_data, opt_ignored, opt_ijData) {
+Templates.AppThreadsSidebar.render = function(opt_data, opt_ignored, opt_ijData) {
   var output = '<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-threads-sidebar list-group">';
   var threadList123 = opt_data.threads;
   var threadListLen123 = threadList123.length;
@@ -33,10 +33,10 @@ Templates.AppThreadsSidebar.content = function(opt_data, opt_ignored, opt_ijData
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
-  Templates.AppThreadsSidebar.content.soyTemplateName = 'Templates.AppThreadsSidebar.content';
+  Templates.AppThreadsSidebar.render.soyTemplateName = 'Templates.AppThreadsSidebar.render';
 }
 
-Templates.AppThreadsSidebar.content.params = ["allUsers","id","selectedThreadIndex","threads"];
+Templates.AppThreadsSidebar.render.params = ["allUsers","id","selectedThreadIndex","threads"];
 
 class AppThreadsSidebar extends Component {}
 AppThreadsSidebar.RENDERER = SoyRenderer;

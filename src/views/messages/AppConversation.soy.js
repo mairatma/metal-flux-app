@@ -21,11 +21,11 @@ if (typeof Templates.AppConversation == 'undefined') { Templates.AppConversation
  * @return {!soydata.SanitizedHtml}
  * @suppress {checkTypes}
  */
-Templates.AppConversation.content = function(opt_data, opt_ignored, opt_ijData) {
+Templates.AppConversation.render = function(opt_data, opt_ignored, opt_ijData) {
   return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-conversation">' + Templates.AppConversation.messages(opt_data, null, opt_ijData) + Templates.AppConversation.input(opt_data, null, opt_ijData) + '</div>');
 };
 if (goog.DEBUG) {
-  Templates.AppConversation.content.soyTemplateName = 'Templates.AppConversation.content';
+  Templates.AppConversation.render.soyTemplateName = 'Templates.AppConversation.render';
 }
 
 
@@ -67,7 +67,7 @@ if (goog.DEBUG) {
   Templates.AppConversation.input.soyTemplateName = 'Templates.AppConversation.input';
 }
 
-Templates.AppConversation.content.params = ["id"];
+Templates.AppConversation.render.params = ["id"];
 Templates.AppConversation.messages.params = ["allUsers","id","thread"];
 Templates.AppConversation.input.params = ["id"];
 

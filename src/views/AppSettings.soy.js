@@ -21,14 +21,14 @@ if (typeof Templates.AppSettings == 'undefined') { Templates.AppSettings = {}; }
  * @return {!soydata.SanitizedHtml}
  * @suppress {checkTypes}
  */
-Templates.AppSettings.content = function(opt_data, opt_ignored, opt_ijData) {
+Templates.AppSettings.render = function(opt_data, opt_ignored, opt_ijData) {
   return soydata.VERY_UNSAFE.ordainSanitizedHtml('<form id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-settings"><div class="form-group"><label>Name</label><input type="text" class="form-control" placeholder="Name" name="name" value="' + soy.$$escapeHtmlAttribute(opt_data.user.name) + '"></div><div class="form-group"><label>Status</label><input type="text" class="form-control" placeholder="Status" name="status" value="' + soy.$$escapeHtmlAttribute(opt_data.user.status) + '"></div><button type="button" class="btn btn-primary" data-onclick="handleClickSave_">Save</button></form>');
 };
 if (goog.DEBUG) {
-  Templates.AppSettings.content.soyTemplateName = 'Templates.AppSettings.content';
+  Templates.AppSettings.render.soyTemplateName = 'Templates.AppSettings.render';
 }
 
-Templates.AppSettings.content.params = ["id","user"];
+Templates.AppSettings.render.params = ["id","user"];
 
 class AppSettings extends Component {}
 AppSettings.RENDERER = SoyRenderer;

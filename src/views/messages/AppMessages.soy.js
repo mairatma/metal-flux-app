@@ -21,14 +21,14 @@ if (typeof Templates.AppMessages == 'undefined') { Templates.AppMessages = {}; }
  * @return {!soydata.SanitizedHtml}
  * @suppress {checkTypes}
  */
-Templates.AppMessages.content = function(opt_data, opt_ignored, opt_ijData) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-messages"><div class="col-xs-4">' + Templates.AppThreadsSidebar.content({allUsers: opt_data.allUsers, id: opt_data.id + '-threads-sidebar', selectedThreadIndex: opt_data.selectedThreadIndex, threads: opt_data.threads}, null, opt_ijData) + '</div><div class="col-xs-8">' + Templates.AppConversation.content({allUsers: opt_data.allUsers, id: opt_data.id + '-conversation', thread: opt_data.threads[opt_data.selectedThreadIndex], selectedThreadIndex: opt_data.selectedThreadIndex}, null, opt_ijData) + '</div></div>');
+Templates.AppMessages.render = function(opt_data, opt_ignored, opt_ijData) {
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-messages"><div class="col-xs-4">' + Templates.AppThreadsSidebar.render({allUsers: opt_data.allUsers, id: opt_data.id + '-threads-sidebar', selectedThreadIndex: opt_data.selectedThreadIndex, threads: opt_data.threads}, null, opt_ijData) + '</div><div class="col-xs-8">' + Templates.AppConversation.render({allUsers: opt_data.allUsers, id: opt_data.id + '-conversation', thread: opt_data.threads[opt_data.selectedThreadIndex], selectedThreadIndex: opt_data.selectedThreadIndex}, null, opt_ijData) + '</div></div>');
 };
 if (goog.DEBUG) {
-  Templates.AppMessages.content.soyTemplateName = 'Templates.AppMessages.content';
+  Templates.AppMessages.render.soyTemplateName = 'Templates.AppMessages.render';
 }
 
-Templates.AppMessages.content.params = ["allUsers","id","threads","selectedThreadIndex"];
+Templates.AppMessages.render.params = ["allUsers","id","threads","selectedThreadIndex"];
 
 class AppMessages extends Component {}
 AppMessages.RENDERER = SoyRenderer;
