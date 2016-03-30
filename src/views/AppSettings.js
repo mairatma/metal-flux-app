@@ -1,9 +1,11 @@
 'use strict';
 
+import templates from './AppSettings.soy';
 import AppActions from '../AppActions';
-import AppSettingsBase from './AppSettings.soy';
+import Component from 'metal-component';
+import Soy from 'metal-soy';
 
-class AppSettings extends AppSettingsBase {
+class AppSettings extends Component {
 	handleClickSave_() {
 		AppActions.editUser(
 			this.user.id,
@@ -12,5 +14,6 @@ class AppSettings extends AppSettingsBase {
 		);
 	}
 }
+Soy.register(AppSettings, templates);
 
 export default AppSettings;

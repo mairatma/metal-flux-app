@@ -1,12 +1,11 @@
-{namespace Templates.AppProfile}
+{namespace AppProfile}
 
 /**
- * @param id
  * @param lastTimestamp
  * @param user
  */
 {template .render}
-	<div id="{$id}" class="app-profile">
+	<div class="app-profile">
 		<span class="avatar-photo"><img src="{$user.photo}"></span>
 		<h3 class="app-profile-name">
 			{$user.name} <small>"{$user.status}"</small>

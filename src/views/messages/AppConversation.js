@@ -1,9 +1,11 @@
 'use strict';
 
+import templates from './AppConversation.soy';
 import AppActions from '../../AppActions';
-import AppConversationBase from './AppConversation.soy';
+import Component from 'metal-component';
+import Soy from 'metal-soy';
 
-class AppConversation extends AppConversationBase {
+class AppConversation extends Component {
 	handleInputKeyUp_(event) {
 		if (event.keyCode === 13) {
 			this.sendMessage_();
@@ -22,8 +24,9 @@ class AppConversation extends AppConversationBase {
 		input.focus();
 	}
 }
+Soy.register(AppConversation, templates);
 
-AppConversation.ATTRS = {
+AppConversation.STATE = {
 	selectedThreadIndex: {
 	}
 };

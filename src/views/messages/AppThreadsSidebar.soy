@@ -1,13 +1,12 @@
-{namespace Templates.AppThreadsSidebar}
+{namespace AppThreadsSidebar}
 
 /**
  * @param allUsers
- * @param id
  * @param selectedThreadIndex
  * @param threads
  */
 {template .render}
-	<div id="{$id}" class="app-threads-sidebar list-group">
+	<div class="app-threads-sidebar list-group">
 		{foreach $thread in $threads}
 	  	<a
 	  		href="#"

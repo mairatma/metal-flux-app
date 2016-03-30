@@ -1,10 +1,9 @@
-{namespace Templates.AppConversation}
+{namespace AppConversation}
 
 /**
- * @param id
  */
 {template .render}
-	<div id="{$id}" class="app-conversation">
+	<div class="app-conversation">
 		{call .messages data="all" /}
 		{call .input data="all" /}
 	</div>
@@ -12,11 +11,10 @@
 
 /**
  * @param allUsers
- * @param id
  * @param thread
  */
 {template .messages}
-	<div id="{$id}-messages" class="col-xs-12">
+	<div class="col-xs-12">
 		<h3>{$allUsers[$thread.userId].name}</h3>
 		{foreach $message in $thread.messages}
 			{let $user: $allUsers[$message.from] /}
@@ -29,10 +27,9 @@
 {/template}
 
 /**
- * @param id
  */
 {template .input}
-	<div id="{$id}-input">
+	<div>
 		<div class="col-xs-9">
 			<input type="text" class="form-control" data-onkeyup="handleInputKeyUp_">
 		</div>

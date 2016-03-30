@@ -1,43 +1,92 @@
 /* jshint ignore:start */
-import Component from 'metal-component';
-import { SoyAop, SoyRenderer, SoyTemplates } from 'metal-soy';
-var Templates = SoyTemplates.get();
+import Component from 'metal-component/src/Component';
+import Soy from 'metal-soy/src/Soy';
+var templates;
+goog.loadModule(function(exports) {
+
 // This file was automatically generated from AppMenu.soy.
 // Please don't edit this file by hand.
 
 /**
- * @fileoverview Templates in namespace Templates.AppMenu.
+ * @fileoverview Templates in namespace AppMenu.
+ * @public
  */
 
-if (typeof Templates.AppMenu == 'undefined') { Templates.AppMenu = {}; }
+goog.module('AppMenu.incrementaldom');
+
+var soy = goog.require('soy');
+var soydata = goog.require('soydata');
+/** @suppress {extraRequire} */
+goog.require('goog.i18n.bidi');
+/** @suppress {extraRequire} */
+goog.require('goog.asserts');
+var IncrementalDom = goog.require('incrementaldom');
+var ie_open = IncrementalDom.elementOpen;
+var ie_close = IncrementalDom.elementClose;
+var ie_void = IncrementalDom.elementVoid;
+var ie_open_start = IncrementalDom.elementOpenStart;
+var ie_open_end = IncrementalDom.elementOpenEnd;
+var itext = IncrementalDom.text;
+var iattr = IncrementalDom.attr;
 
 
 /**
- * @param {Object.<string, *>=} opt_data
+ * @param {Object<string, *>=} opt_data
  * @param {(null|undefined)=} opt_ignored
- * @param {Object.<string, *>=} opt_ijData
- * @return {!soydata.SanitizedHtml}
+ * @param {Object<string, *>=} opt_ijData
+ * @return {void}
  * @suppress {checkTypes}
  */
-Templates.AppMenu.render = function(opt_data, opt_ignored, opt_ijData) {
-  var output = '<nav id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app-menu navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="#" data-onclick="handleHomeClick_">' + soy.$$escapeHtml(opt_data.user.name) + '</a></div><div class="collapse navbar-collapse"><ul class="nav navbar-nav">';
-  var itemList8 = opt_data.navBarItems;
-  var itemListLen8 = itemList8.length;
-  for (var itemIndex8 = 0; itemIndex8 < itemListLen8; itemIndex8++) {
-    var itemData8 = itemList8[itemIndex8];
-    output += '<li class="' + soy.$$escapeHtmlAttribute(itemIndex8 == opt_data.navBarSelectedIndex ? 'active' : '') + '" data-index="' + soy.$$escapeHtmlAttribute(itemIndex8) + '" data-onclick="handleItemClick_"><a href="#">' + soy.$$escapeHtml(itemData8.name) + '</a></li>';
-  }
-  output += '</ul></div></div></nav>';
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
-};
+function $render(opt_data, opt_ignored, opt_ijData) {
+  ie_open('nav', null, null,
+      'class', 'app-menu navbar navbar-default');
+    ie_open('div', null, null,
+        'class', 'container-fluid');
+      ie_open('div', null, null,
+          'class', 'navbar-header');
+        ie_open('a', null, null,
+            'class', 'navbar-brand',
+            'href', '#',
+            'data-onclick', 'handleHomeClick_');
+          itext((goog.asserts.assert((opt_data.user.name) != null), opt_data.user.name));
+        ie_close('a');
+      ie_close('div');
+      ie_open('div', null, null,
+          'class', 'collapse navbar-collapse');
+        ie_open('ul', null, null,
+            'class', 'nav navbar-nav');
+          var itemList13 = opt_data.navBarItems;
+          var itemListLen13 = itemList13.length;
+          for (var itemIndex13 = 0; itemIndex13 < itemListLen13; itemIndex13++) {
+            var itemData13 = itemList13[itemIndex13];
+            ie_open('li', null, null,
+                'class', itemIndex13 == opt_data.navBarSelectedIndex ? 'active' : '',
+                'data-index', itemIndex13,
+                'data-onclick', 'handleItemClick_');
+              ie_open('a', null, null,
+                  'href', '#');
+                itext((goog.asserts.assert((itemData13.name) != null), itemData13.name));
+              ie_close('a');
+            ie_close('li');
+          }
+        ie_close('ul');
+      ie_close('div');
+    ie_close('div');
+  ie_close('nav');
+}
+exports.render = $render;
 if (goog.DEBUG) {
-  Templates.AppMenu.render.soyTemplateName = 'Templates.AppMenu.render';
+  $render.soyTemplateName = 'AppMenu.render';
 }
 
-Templates.AppMenu.render.params = ["id","navBarItems","navBarSelectedIndex","user"];
+exports.render.params = ["navBarItems","navBarSelectedIndex","user"];
+templates = exports;
+return exports;
+
+});
 
 class AppMenu extends Component {}
-AppMenu.RENDERER = SoyRenderer;
-SoyAop.registerTemplates('AppMenu');
-export default AppMenu;
+Soy.register(AppMenu, templates);
+export default templates;
+export { AppMenu, templates };
 /* jshint ignore:end */

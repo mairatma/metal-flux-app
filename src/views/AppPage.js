@@ -1,27 +1,29 @@
 'use strict';
 
+import templates from './AppPage.soy';
+import Component from 'metal-component';
 import LastSentTimestampStore from '../stores/LastSentTimestampStore';
 import NavBarStore from '../stores/NavBarStore';
+import Soy from 'metal-soy';
 import ThreadsStore from '../stores/ThreadsStore';
 import UsersStore from '../stores/UsersStore';
-import AppPageBase from './AppPage.soy';
 
-class AppPage extends AppPageBase {
+class AppPage extends Component {
 	attached() {
 		NavBarStore.on('change', () => {
-			this.setAttrs({
+			this.setState({
 				navBarItems: NavBarStore.getAll(),
 				navBarSelectedIndex: NavBarStore.getSelectedIndex()
 			});
 		});
 		UsersStore.on('change', () => {
-			this.setAttrs({
+			this.setState({
 				allUsers: UsersStore.getAll(),
 				user: UsersStore.getCurrentUser()
 			});
 		});
 		ThreadsStore.on('change', () => {
-			this.setAttrs({
+			this.setState({
 				threads: ThreadsStore.getAll(),
 				selectedThreadIndex: ThreadsStore.getSelectedThreadIndex()
 			});
@@ -31,8 +33,9 @@ class AppPage extends AppPageBase {
 		});
 	}
 }
+Soy.register(AppPage, templates);
 
-AppPage.ATTRS = {
+AppPage.STATE = {
 	allUsers: {
 		valueFn: UsersStore.getAll
 	},

@@ -1,11 +1,10 @@
-{namespace Templates.AppSettings}
+{namespace AppSettings}
 
 /**
- * @param id
  * @param user
  */
 {template .render}
-	<form id="{$id}" class="app-settings">
+	<form class="app-settings">
 		<div class="form-group">
 			<label>Name</label>
 	    <input type="text" class="form-control" placeholder="Name" name="name" value="{$user.name}">

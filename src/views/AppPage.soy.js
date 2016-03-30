@@ -1,35 +1,88 @@
 /* jshint ignore:start */
-import Component from 'metal-component';
-import { SoyAop, SoyRenderer, SoyTemplates } from 'metal-soy';
-var Templates = SoyTemplates.get();
+import Component from 'metal-component/src/Component';
+import Soy from 'metal-soy/src/Soy';
+var templates;
+goog.loadModule(function(exports) {
+
 // This file was automatically generated from AppPage.soy.
 // Please don't edit this file by hand.
 
 /**
- * @fileoverview Templates in namespace Templates.AppPage.
+ * @fileoverview Templates in namespace AppPage.
+ * @public
  */
 
-if (typeof Templates.AppPage == 'undefined') { Templates.AppPage = {}; }
+goog.module('AppPage.incrementaldom');
+
+var soy = goog.require('soy');
+var soydata = goog.require('soydata');
+/** @suppress {extraRequire} */
+goog.require('goog.i18n.bidi');
+/** @suppress {extraRequire} */
+goog.require('goog.asserts');
+var IncrementalDom = goog.require('incrementaldom');
+var ie_open = IncrementalDom.elementOpen;
+var ie_close = IncrementalDom.elementClose;
+var ie_void = IncrementalDom.elementVoid;
+var ie_open_start = IncrementalDom.elementOpenStart;
+var ie_open_end = IncrementalDom.elementOpenEnd;
+var itext = IncrementalDom.text;
+var iattr = IncrementalDom.attr;
+
+var $templateAlias1 = Soy.getTemplate('AppMenu.incrementaldom', 'render');
+
+var $templateAlias3 = Soy.getTemplate('AppMessages.incrementaldom', 'render');
+
+var $templateAlias2 = Soy.getTemplate('AppProfile.incrementaldom', 'render');
+
+var $templateAlias4 = Soy.getTemplate('AppSettings.incrementaldom', 'render');
 
 
 /**
- * @param {Object.<string, *>=} opt_data
+ * @param {Object<string, *>=} opt_data
  * @param {(null|undefined)=} opt_ignored
- * @param {Object.<string, *>=} opt_ijData
- * @return {!soydata.SanitizedHtml}
+ * @param {Object<string, *>=} opt_ijData
+ * @return {void}
  * @suppress {checkTypes}
  */
-Templates.AppPage.render = function(opt_data, opt_ignored, opt_ijData) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="app component">' + Templates.AppMenu.render({id: opt_data.id + '-menu', navBarItems: opt_data.navBarItems, navBarSelectedIndex: opt_data.navBarSelectedIndex, user: opt_data.user}, null, opt_ijData) + '<div class="container"><div class="row">' + ((opt_data.navBarSelectedIndex == 0) ? Templates.AppProfile.render({id: opt_data.id + '-profile', lastTimestamp: opt_data.lastTimestamp, user: opt_data.user}, null, opt_ijData) : (opt_data.navBarSelectedIndex == 1) ? Templates.AppMessages.render({allUsers: opt_data.allUsers, id: opt_data.id + '-messages', selectedThreadIndex: opt_data.selectedThreadIndex, threads: opt_data.threads}, null, opt_ijData) : Templates.AppSettings.render({id: opt_data.id + '-settings', user: opt_data.user}, null, opt_ijData)) + '</div></div></div>');
-};
+function $render(opt_data, opt_ignored, opt_ijData) {
+  ie_open('div', null, null,
+      'class', 'app component');
+    $templateAlias1({key: 'menu', navBarItems: opt_data.navBarItems, navBarSelectedIndex: opt_data.navBarSelectedIndex, user: opt_data.user}, null, opt_ijData);
+    ie_open('div', null, null,
+        'class', 'container');
+      ie_open('div', null, null,
+          'class', 'row');
+        if (opt_data.navBarSelectedIndex == 0) {
+          ie_open('div');
+            $templateAlias2({key: 'profile', lastTimestamp: opt_data.lastTimestamp, user: opt_data.user}, null, opt_ijData);
+          ie_close('div');
+        } else if (opt_data.navBarSelectedIndex == 1) {
+          ie_open('div');
+            $templateAlias3({allUsers: opt_data.allUsers, key: 'messages', selectedThreadIndex: opt_data.selectedThreadIndex, threads: opt_data.threads}, null, opt_ijData);
+          ie_close('div');
+        } else {
+          ie_open('div');
+            $templateAlias4({key: 'settings', user: opt_data.user}, null, opt_ijData);
+          ie_close('div');
+        }
+      ie_close('div');
+    ie_close('div');
+  ie_close('div');
+}
+exports.render = $render;
 if (goog.DEBUG) {
-  Templates.AppPage.render.soyTemplateName = 'Templates.AppPage.render';
+  $render.soyTemplateName = 'AppPage.render';
 }
 
-Templates.AppPage.render.params = ["allUsers","id","lastTimestamp","navBarItems","navBarSelectedIndex","selectedThreadIndex","threads","user"];
+exports.render.params = ["allUsers","lastTimestamp","navBarItems","navBarSelectedIndex","selectedThreadIndex","threads","user"];
+templates = exports;
+return exports;
+
+});
 
 class AppPage extends Component {}
-AppPage.RENDERER = SoyRenderer;
-SoyAop.registerTemplates('AppPage');
-export default AppPage;
+Soy.register(AppPage, templates);
+export default templates;
+export { AppPage, templates };
 /* jshint ignore:end */

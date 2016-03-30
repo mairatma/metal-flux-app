@@ -1,9 +1,8 @@
-{namespace Templates.AppPage}
+{namespace AppPage}
 
 /**
  * This renders the main element.
  * @param allUsers
- * @param id
  * @param lastTimestamp
  * @param navBarItems
  * @param navBarSelectedIndex
@@ -12,9 +11,9 @@
  * @param user
  */
 {template .render}
-	<div id="{$id}" class="app component">
-		{call Templates.AppMenu.render}
-			{param id: $id + '-menu' /}
+	<div class="app component">
+		{call AppMenu.render}
+			{param key: 'menu' /}
 			{param navBarItems: $navBarItems /}
 			{param navBarSelectedIndex: $navBarSelectedIndex /}
 			{param user: $user /}
@@ -22,23 +21,29 @@
 		<div class="container">
 			<div class="row">
 				{if $navBarSelectedIndex == 0}
-					{call Templates.AppProfile.render}
-						{param id: $id + '-profile' /}
+					<div>
+					{call AppProfile.render}
+						{param key: 'profile' /}
 						{param lastTimestamp: $lastTimestamp /}
 						{param user: $user /}
 					{/call}
+					</div>
 				{elseif $navBarSelectedIndex == 1}
-					{call Templates.AppMessages.render}
+					<div>
+					{call AppMessages.render}
 						{param allUsers: $allUsers /}
-						{param id: $id + '-messages' /}
+						{param key: 'messages' /}
 						{param selectedThreadIndex: $selectedThreadIndex /}
 						{param threads: $threads /}
 					{/call}
+					</div>
 				{else}
-					{call Templates.AppSettings.render}
-						{param id: $id + '-settings' /}
+					<div>
+					{call AppSettings.render}
+						{param key: 'settings' /}
 						{param user: $user /}
 					{/call}
+					</div>
 				{/if}
 			</div>
 		</div>
