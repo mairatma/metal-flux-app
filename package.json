@@ -23,7 +23,7 @@
     "bootstrap": "^3.3.6",
     "metal": "metal/metal.js#master",
 		"metal-component": "metal/metal-component#master",
-		"metal-flux": "mairatma/metal-flux#master",
+		"metal-flux": "metal/metal-flux#master",
 		"metal-soy": "metal/metal-soy#master"
   },
   "devDependencies": {
