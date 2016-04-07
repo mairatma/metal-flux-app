@@ -11,7 +11,7 @@ class App {
 			data: initialData
 		});
 
-		new AppPage().render();
+		new AppPage();
 	}
 }
 
